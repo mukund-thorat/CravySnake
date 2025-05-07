@@ -14,9 +14,9 @@ pygame.display.set_caption("Game Over!")
 def draw_graphics(score, high_score):
     graphics.load_image(SCREEN, graphics.bg_img, (True, True))
     graphics.load_image(SCREEN, graphics.score_bg, (True, 120))
-    graphics.load_text(SCREEN, graphics.laser_font_60, "GAME OVER!", Color.RED, (True, 30))
-    graphics.load_text(SCREEN, graphics.laser_font, f"SCORE : {score}", Color.SCORE_COLOR, (True, 150))
-    graphics.load_text(SCREEN, graphics.laser_font, f"HIGH SCORE: {high_score}", Color.SCORE_COLOR, (True, 210))
+    graphics.load_text(SCREEN, graphics.luckiest_guy_font, "GAME OVER!", Color.RED, (True, 30))
+    graphics.load_text(SCREEN, graphics.roboto_font, f"SCORE : {score}", Color.SCORE_COLOR, (True, 150))
+    graphics.load_text(SCREEN, graphics.roboto_font, f"HIGH SCORE: {high_score}", Color.SCORE_COLOR, (True, 210))
     graphics.load_image(SCREEN, graphics.start_button_img, (True, 320))
     graphics.load_image(SCREEN, graphics.home_button_img, (True, 450))
 

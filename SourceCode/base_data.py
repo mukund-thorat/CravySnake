@@ -16,5 +16,3 @@ def random_position_generator() -> list:
     random_x = randrange(GRID_X + CELL_SIZE, (GRID_X + GRID_WIDTH))
     random_y = randrange(GRID_Y + CELL_SIZE, (GRID_Y + GRID_HEIGHT))
     return [((random_x // CELL_SIZE) * CELL_SIZE) - CELL_SIZE, ((random_y // CELL_SIZE) * CELL_SIZE) - CELL_SIZE]
-
-

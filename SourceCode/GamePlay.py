@@ -8,17 +8,15 @@ import Defination
 from json_file_manager import check_is_database_exists
 
 
-def game_loop():  # Sequence of execution of functions matters!
+def game_loop():
     clock = pygame.time.Clock()
-    while True:
+    while True: # order matters here!
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 exit()
             elif event.type == pygame.KEYDOWN:
                 Defination.snake_mover(event)
-            elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                Defination.mouse_event_controller(event)
         Defination.high_score_updater()
         Defination.draw_graphics()
         Defination.snake_transportation()

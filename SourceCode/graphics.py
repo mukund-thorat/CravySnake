@@ -5,9 +5,6 @@ import alignment
 pygame.init()
 # images
 grid_img = pygame.image.load(os.path.join('Assets/Images', 'grid.png'))
-pause_img = pygame.image.load(os.path.join('Assets/Images', 'pause.png'))
-paused_img = pygame.image.load(os.path.join('Assets/Images', 'paused.png'))
-exit_img = pygame.image.load(os.path.join('Assets/Images', 'exit.png'))
 bg_img = pygame.image.load(os.path.join('Assets/Images', 'background.png'))
 home_button_img = pygame.image.load(os.path.join('Assets/Images', 'home.png'))
 start_button_img = pygame.image.load(os.path.join('Assets/Images', 'play.png'))
@@ -16,16 +13,23 @@ setting_bg_img = pygame.image.load(os.path.join('Assets/Images', 'setting_bg.png
 reset_img = pygame.image.load(os.path.join('Assets/Images', 'reset.png'))
 rank_button_img = pygame.image.load(os.path.join('Assets/Images', 'level.png'))
 close_button = pygame.image.load(os.path.join('Assets/Images', 'close.png'))
+apple_raw_img = pygame.image.load(os.path.join('Assets/Images', 'apple.png'))
+trophy_raw_img = pygame.image.load(os.path.join('Assets/Images', 'trophy.png'))
 
 # change it quick
 snake_raw_img = pygame.image.load(os.path.join('Assets/Images', 'snake.png'))
 snake_img = pygame.transform.scale(snake_raw_img, (238, 238))
 
+apple_img = pygame.transform.scale(apple_raw_img, (45, 45))
+apple_game_img = pygame.transform.scale(apple_raw_img, (30, 30))
+trophy_img = pygame.transform.scale(trophy_raw_img, (45, 45))
+
 # fonts
-laser_font = pygame.font.Font(os.path.join('Assets/Fonts', 'PilotCommandLaser.otf'), 30)
-laser_font_60 = pygame.font.Font(os.path.join('Assets/Fonts', 'PilotCommandLaser.otf'), 60)
-pilot_font = pygame.font.Font(os.path.join('Assets/Fonts', 'PilotCommand.otf'), 25)
-pilot_halftone_font = pygame.font.Font(os.path.join('Assets/Fonts', 'PilotCommandHalftone.otf'), 65)
+roboto_font = pygame.font.Font(os.path.join('Assets/Fonts', 'Roboto-Regular.ttf'), 30)
+roboto_bold_font = pygame.font.Font(os.path.join('Assets/Fonts', 'Roboto-Bold.ttf'), 30)
+roboto_font_60 = pygame.font.Font(os.path.join('Assets/Fonts', 'Roboto-Regular.ttf'), 60)
+roboto_font_25 = pygame.font.Font(os.path.join('Assets/Fonts', 'Roboto-Regular.ttf'), 25)
+luckiest_guy_font = pygame.font.Font(os.path.join('Assets/Fonts', 'LuckiestGuy-Regular.ttf'), 80)
 
 instance = alignment.CreateWindow()
 snake_img.get_rect()

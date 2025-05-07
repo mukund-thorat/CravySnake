@@ -75,12 +75,12 @@ def start_timer():
 
 
 def spawn_magic_food_and_timer(screen, snake):
-    from graphics import load_text, pilot_font
+    from graphics import load_text, roboto_font
     from pygame import draw
     from Color import BLUE, GREENISH_BLACK
 
     start_timer()
     magic_food = draw.rect(screen, BLUE, (magic_food_pos[0], magic_food_pos[1], base_data.CELL_SIZE,
                                           base_data.CELL_SIZE))
-    load_text(screen, pilot_font, str(time_counter), GREENISH_BLACK, (50, 50))
+    load_text(screen, roboto_font, str(time_counter), GREENISH_BLACK, (50, 50))
     magic_food_collision(snake, magic_food)

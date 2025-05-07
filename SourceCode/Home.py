@@ -45,7 +45,7 @@ level_manager(level)
 
 def draw_graphics():
     graphics.load_image(instance.SCREEN, graphics.snake_img, (True, 5))
-    graphics.load_text(instance.SCREEN, graphics.pilot_halftone_font, "SNAKE", Color.WHITE, (True, 230))
+    graphics.load_text(instance.SCREEN, graphics.luckiest_guy_font, "SNAKE", Color.WHITE, (True, 250))
     graphics.load_image(instance.SCREEN, graphics.start_button_img, (True, 330))
     graphics.load_image(instance.SCREEN, graphics.rank_button_img, (True, 450))
 
@@ -55,11 +55,11 @@ def show_score_popup():
     graphics.load_image(instance.SCREEN, graphics.setting_bg_img,
                         ((instance.SCREEN_WIDTH - graphics.setting_bg_img.get_width())//2,
                          (instance.SCREEN_HEIGHT - graphics.setting_bg_img.get_height())//2,))
-    graphics.load_text(instance.SCREEN, graphics.pilot_font, "EASY", easy_color, (True, 220))
-    graphics.load_text(instance.SCREEN, graphics.pilot_font, "MEDIUM", medium_color, (True, 255))
-    graphics.load_text(instance.SCREEN, graphics.pilot_font, "HARD", hard_color, (True, 285))
-    graphics.load_text(instance.SCREEN, graphics.pilot_font, "HIGH SCORE", Color.WHITE, (True, 360), (-40, 0))
-    graphics.load_text(instance.SCREEN, graphics.pilot_font, f": {base_data.high_score}",
+    graphics.load_text(instance.SCREEN, graphics.roboto_font, "EASY", easy_color, (True, 220))
+    graphics.load_text(instance.SCREEN, graphics.roboto_font, "MEDIUM", medium_color, (True, 255))
+    graphics.load_text(instance.SCREEN, graphics.roboto_font, "HARD", hard_color, (True, 285))
+    graphics.load_text(instance.SCREEN, graphics.roboto_font, "HIGH SCORE", Color.WHITE, (True, 360), (-40, 0))
+    graphics.load_text(instance.SCREEN, graphics.roboto_font, f": {base_data.high_score}",
                        Color.DARK_RED, (True, 360), (100, 0))
     graphics.load_image(instance.SCREEN, graphics.reset_img, (True, 400))
     graphics.load_image(instance.SCREEN, graphics.close_button, (True, 93))

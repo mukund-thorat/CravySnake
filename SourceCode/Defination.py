@@ -19,26 +19,23 @@ SCREEN = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Snake Game")
 
 food_pos = base_data.random_position_generator()
-pause_game_img = graphics.pause_img
-
 
 def draw_graphics():
     SCREEN.fill(Color.BG_GREEN)
 
     graphics.load_image(SCREEN, graphics.grid_img, (True, True), (3, 0))
-    graphics.load_image(SCREEN, pause_game_img, (25, 556))
-    graphics.load_image(SCREEN, graphics.exit_img, (580, 556))
-    graphics.load_text(SCREEN, graphics.laser_font, f"SCORE : {base_data.score}", Color.SCORE_COLOR, (GRID_X, 10))
-    graphics.load_text(SCREEN, graphics.laser_font, f"HIGH SCORE: {base_data.high_score}", Color.SCORE_COLOR,
-                       ((GRID_X + GRID_WIDTH) - graphics.laser_font.size(f"HIGH SCORE: {base_data.high_score}")[0], 10))
+    graphics.load_image(SCREEN, graphics.apple_img, (GRID_X, 3), (3, 0))
+    graphics.load_text(SCREEN, graphics.roboto_bold_font, str(base_data.score), Color.SCORE_COLOR, (GRID_X + 50, 10))
+    graphics.load_image(SCREEN, graphics.trophy_img, ((GRID_X + GRID_WIDTH) - 80, 3), (3, 0))
+    graphics.load_text(SCREEN, graphics.roboto_bold_font, str(base_data.high_score), Color.SCORE_COLOR,
+                       ((GRID_X + GRID_WIDTH) - graphics.roboto_font.size(str(base_data.high_score))[0], 10))
 
 
 def snake_and_food_drawer():
     snake = pygame.draw.rect(SCREEN, Color.DARK_GRAY,
                              (snake_pos[0][0], snake_pos[0][1],
                               CELL_SIZE, CELL_SIZE))
-    food = pygame.draw.rect(SCREEN, Color.RED, (food_pos[0], food_pos[1],
-                                                CELL_SIZE, CELL_SIZE))
+    food = graphics.load_image(SCREEN, graphics.apple_game_img, (food_pos[0], food_pos[1]))
     if magic_food_manager.display_magic_food is True:
         magic_food_manager.spawn_magic_food_and_timer(SCREEN, snake)
 
@@ -106,7 +103,7 @@ def snake_death():
 
 def snake_collision_detector(snake, food):
     global food_pos
-    if snake.colliderect(food):
+    if snake_pos[0] == food_pos:
         from os.path import join
         pygame.mixer_music.load(join('Assets/sound', 'eat.wav'))
         pygame.mixer.music.play(0)  # play at once
@@ -135,21 +132,11 @@ temp_snake_velocity = 0
 
 
 def pause_game():
-    global snake_velocity, paused, temp_snake_velocity, pause_game_img
+    global snake_velocity, paused, temp_snake_velocity
     if not paused:
-        pause_game_img = graphics.paused_img
         paused = True
         temp_snake_velocity = snake_velocity
         snake_velocity = [0, 0]
     else:
-        pause_game_img = graphics.pause_img
         paused = False
         snake_velocity = temp_snake_velocity
-
-
-def mouse_event_controller(event):
-    if graphics.get_rect_object(graphics.load_image(SCREEN, graphics.pause_img, (25, 556))).collidepoint(event.pos):
-        pause_game()
-    elif graphics.get_rect_object(graphics.load_image(SCREEN, graphics.exit_img, (580, 556))).collidepoint(event.pos):
-        from Home import home_loop
-        home_loop()
